@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de progresso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div
+id="app"
+ :class="progressClassaes"
+>
+<div class="progress_bg"></div>
+<template v-for="(step, index) in steps">
+<div :class="stepClasses(index)">
+<div :class="progress_indicator">
+<i class="fa fa-check"></i>
+</div>
+<div class="progress_label">
+    {{step.label}}
+</div>
+</div>
+</template>
+<div class="progress_actions">
+<div 
+class="btn"
+v-on:cick="nextStep(false)"
+>
+Back
+</div>
+<div 
+class="btn"
+v-on:click="nextStep"
+>
+Next 
+</div>
+<div>
+    Step:
+    {{currentStep ? currentStep.label : "Start"}}
+</div>
+</div>
+</div>
+</body>
+</html>
